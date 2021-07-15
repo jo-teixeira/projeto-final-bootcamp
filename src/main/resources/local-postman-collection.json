@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "3584ab6a-3e43-47a2-bec0-a3066df5f121",
+		"name": "Projeto Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0 - Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoidXNlcl9vbmUiLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjI1MTQ1NjQ3LCJleHAiOjE2MjUxNDYyNDd9.UJlVQ67fWx24zkGBs0nPgoBGRz-q6qo7nYLoDGzxfTSd-GsqsFdzX-kX-bgWfyrB1NPLPUmCyxnfDAbtC2MMjw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8082/api/v1/sign-in?username=user_brazil1_representative&password=contra123",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"sign-in"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user_brazil1_representative"
+						},
+						{
+							"key": "password",
+							"value": "contra123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.1 - Create Insert Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inboundOrder\": {\n        \"orderNumber\": 6,\n        \"orderDate\": \"2021-12-12\",\n        \"section\":{\n            \"sectionCode\":\"9cf9c241-d34f-4d0b-917c-87baf9e0d795\",\n            \"warehouseCode\":\"992820bd-74be-4232-b4fd-d00a6f60e0ea\"\n        },\n        \"batchStock\": [\n            {\n                \"batchNumber\": 1,\n                \"productId\": \"291f121a-069b-4ae6-92fb-7e930ba16358\",\n                \"currentTemperature\": 15,\n                \"minimumTemperature\": 20,\n                \"currentQuantity\": 50,\n                \"initialQuantity\": 50,\n                \"manufacturingDate\": \"2021-07-11\",\n                \"manufacturingTime\": \"2021-07-11T06:00:00\",\n                \"dueDate\": \"2021-08-11\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 - Update Insert Order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJjb3VudHJ5IjoyLCJzdWIiOiI5MzE0YjkxMy1lNzc5LTRhMTAtYWFmMC04NTc2YjJmYzE2MTEiLCJ3YXJlaG91c2UiOiJiOWM1MzRhNS1iMWY3LTRkMDQtOTNjNy1lOWVhNTM2MDg4ZWUiLCJleHAiOjE2MjUyNTU2MzUsImlhdCI6MTYyNTI1NTAzNSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9SRVBSRVNFTlRBVElWRSJdLCJ1c2VybmFtZSI6InVzZXJfb25lIn0.78919EQfLKIP1vcVbbr6YAPogcaOe7wm2mGN2TSg9OdfYNMWRt0meQ-XojfrqwIWfeylmSHEXCU2hr4HwA3qHQ",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inboundOrder\": {\n        \"orderNumber\": 6,\n        \"orderDate\": \"2021-12-12\",\n        \"section\":{\n            \"sectionCode\":\"9cf9c241-d34f-4d0b-917c-87baf9e0d795\",\n            \"warehouseCode\":\"992820bd-74be-4232-b4fd-d00a6f60e0ea\"\n        },\n        \"batchStock\": [\n            {\n                \"batchNumber\": 1,\n                \"productId\": \"291f121a-069b-4ae6-92fb-7e930ba16358\",\n                \"currentTemperature\": 15,\n                \"minimumTemperature\": 20,\n                \"currentQuantity\": 100,\n                \"initialQuantity\": 100,\n                \"manufacturingDate\": \"2021-07-11\",\n                \"manufacturingTime\": \"2021-07-11T06:00:00\",\n                \"dueDate\": \"2021-08-11\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1 - Get Products from Country",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_buyer&password=contra123';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+							"  pm.variables.set('token', newAccessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 - Get Products from Country by Section",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_buyer&password=contra123';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+							"  pm.variables.set('token', newAccessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/list?category=FS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3 - Create Purchase Order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_buyer&password=contra123';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+							"  pm.variables.set('token', newAccessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2021-07-12\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"05459ac0-dea2-4dfe-b26d-3a779ae93995\",\n                \"quantity\": 1\n            }\n        ] \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 - Get Purchase Order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_buyer&password=contra123';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+							"  pm.variables.set('token', newAccessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/orders?orderId=8b59b9d5-56e3-42a2-b89a-90838f352c3a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "8b59b9d5-56e3-42a2-b89a-90838f352c3a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.5 - Update Purchase Order",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_buyer&password=contra123';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+							"  pm.variables.set('token', newAccessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2021-07-12\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"05459ac0-dea2-4dfe-b26d-3a779ae93995\",\n                \"quantity\": 1\n            }\n        ] \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/orders?orderId=8b59b9d5-56e3-42a2-b89a-90838f352c3a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "8b59b9d5-56e3-42a2-b89a-90838f352c3a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - List of BatchStock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/representative/list?productId=05459ac0-dea2-4dfe-b26d-3a779ae93995",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"representative",
+						"list"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "05459ac0-dea2-4dfe-b26d-3a779ae93995"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Product Count By Warehouse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/warehouse?productId=05459ac0-dea2-4dfe-b26d-3a779ae93995",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "05459ac0-dea2-4dfe-b26d-3a779ae93995"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1 - Expired Products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/due-date?days=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"due-date"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2 - Expired Products by Section",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1/fresh-products/due-date/list?days=30&category=FF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"due-date",
+						"list"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "30"
+						},
+						{
+							"key": "category",
+							"value": "FF"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const tokenUrl = 'localhost:8082/api/v1/sign-in?username=user_brazil1_representative&password=contra123';",
+					"",
+					"const getTokenRequest = {",
+					"  method: 'POST',",
+					"  url: tokenUrl,",
+					"};",
+					"",
+					"pm.sendRequest(getTokenRequest, (err, response) => {",
+					"  const jsonResponse = response.json();",
+					"  const newAccessToken = jsonResponse.token.split(\"Bearer \")[1];",
+					"  pm.variables.set('token', newAccessToken);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

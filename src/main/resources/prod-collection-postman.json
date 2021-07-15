@@ -1,0 +1,1276 @@
+{
+	"info": {
+		"_postman_id": "07073bc0-a3a4-4894-ba84-3db301295c8f",
+		"name": "Projeto Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US0000 - Login admin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user_brazil1_admin\",\n    \"password\": \"contSD#&#!SD3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0000 - Login buyer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user_brazil1_admin\",\n    \"password\": \"contSD#&#!SD3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0001 - insert batch",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJjb3VudHJ5IjoyLCJzdWIiOiJmOGUyNTg0ZS1iOWRhLTQzZGMtYmM2ZS04MjcwZjQ1NDZmN2QiLCJ3YXJlaG91c2UiOiJkNjRlNmVhMC05ZTBjLTQ2MDktYTJlMi00MmM5Y2VmNWVkZTMiLCJleHAiOjE2MjYxMDQwNTEsImlhdCI6MTYyNjEwMzQ1MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9SRVBSRVNFTlRBVElWRSJdLCJ1c2VybmFtZSI6InVzZXJfYnJhemlsMl9yZXByZXNlbnRhdGl2ZSJ9.ZFc_qywssitCZB9syVxozEVWdEZavGo3Z3is8yr9cXe9Br1hjHqT9twveK-iYFBEovlG6CZWEJV30AbsJwdRqg",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJjb3VudHJ5IjoyLCJzdWIiOiJmOGUyNTg0ZS1iOWRhLTQzZGMtYmM2ZS04MjcwZjQ1NDZmN2EiLCJ3YXJlaG91c2UiOiJkNjRlNmVhMC05ZTBjLTQ2MDktYTJlMi00MmM5Y2VmNWVkZTMiLCJleHAiOjE2MjYxMDI5MDQsImlhdCI6MTYyNjEwMjMwNCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6InVzZXJfYnJhemlsMV9hZG1pbiJ9.ZG-CPPxvlqIgOn0fvgIv3xbKWLwkp5zMpDRuyDuc9hrRpAaaI5H62ptWTZA8wMy5dqiqGGJXtwK0OuAAVt4NgA",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inboundOrder\": {\n        \"orderNumber\" : 123222,\n        \"orderDate\": \"2021-09-29\",\n        \"section\":{\n            \"sectionCode\":\"dec9db04-19f8-4926-8a0a-e2389c740fa0\",\n            \"warehouseCode\":\"d64e6ea0-9e0c-4609-a2e2-42c9cef5ede3\"\n        },\n        \"batchStock\": [\n            {\n                \"batchNumber\":1,\n                \"productId\": \"8a126e4e-c933-41d4-ae92-e6d3202be1a2\",\n                \"currentTemperature\": 5,\n                \"minimumTemperature\": 0,\n                \"currentQuantity\": 11,\n                \"initialQuantity\": 11,\n                \"manufacturingDate\": \"2021-05-05\",\n                \"manufacturingTime\": \"2016-01-25T21:34:55\",\n                \"dueDate\": \"2022-09-29\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/inboundorder",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0001 - edit batch",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil2_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJjb3VudHJ5IjoyLCJzdWIiOiJmOGUyNTg0ZS1iOWRhLTQzZGMtYmM2ZS04MjcwZjQ1NDZmN2QiLCJ3YXJlaG91c2UiOiJkNjRlNmVhMC05ZTBjLTQ2MDktYTJlMi00MmM5Y2VmNWVkZTMiLCJleHAiOjE2MjYxMDQwNTEsImlhdCI6MTYyNjEwMzQ1MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9SRVBSRVNFTlRBVElWRSJdLCJ1c2VybmFtZSI6InVzZXJfYnJhemlsMl9yZXByZXNlbnRhdGl2ZSJ9.ZFc_qywssitCZB9syVxozEVWdEZavGo3Z3is8yr9cXe9Br1hjHqT9twveK-iYFBEovlG6CZWEJV30AbsJwdRqg",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inboundOrder\": {\n        \"orderNumber\" : 12132,\n        \"orderDate\": \"2022-12-08\",\n        \"section\":{\n            \"sectionCode\":\"dec9db04-19f8-4926-8a0a-e2389c740fa0\",\n            \"warehouseCode\":\"d64e6ea0-9e0c-4609-a2e2-42c9cef5ede3\"\n        },\n        \"batchStock\": [\n            {\n                \"batchNumber\":1,\n                \"productId\": \"1185d633-c98a-4a3b-944e-8839932f14f1\",\n                \"currentTemperature\": 5,\n                \"minimumTemperature\": 0,\n                \"currentQuantity\": 100,\n                \"initialQuantity\": 100,\n                \"manufacturingDate\": \"2021-05-05\",\n                \"manufacturingTime\": \"2016-01-25T21:34:55\",\n                \"dueDate\": \"2023-08-01\"\n            }\n        ]\n\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/inboundorder",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002 - list products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_buyer\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "4bca83e3ab7c1771d72d95225529fa394c2ba25c1a3fd1e3822cae6578838582",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002 - list products by category",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_buyer\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/list?category=RF",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "RF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002 - post order products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_buyer\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2022-04-03\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"8a126e4e-c933-41d4-ae92-e6d3202be1a2\",  \n                \"quantity\": \"1\"\n            }\n        ] \n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/orders",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002 - get order products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil2_buyer\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/orders?orderId=ef7eb95e-2a7e-4c42-bfdc-4fafba230e94",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "ef7eb95e-2a7e-4c42-bfdc-4fafba230e94"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0002 - put order products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_buyer\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2021-02-03\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"8a126e4e-c933-41d4-ae92-e6d3202be1a2\",  \n                \"quantity\": \"1\"\n            }\n        ] \n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/orders?orderId=ef7eb95e-2a7e-4c42-bfdc-4fafba230e94",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "ef7eb95e-2a7e-4c42-bfdc-4fafba230e94"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0003 - get batch of product",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/representative/list?productId=8a126e4e-c933-41d4-ae92-e6d3202be1a2",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"representative",
+						"list"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8a126e4e-c933-41d4-ae92-e6d3202be1a2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0003 - get batch of product by category",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2021-02-03\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"07c5eafc-e244-449a-acba-1ff34898500c\",  \n                \"quantity\": \"1\"\n            },\n            {\n                \"productId\": \"07c5eafc-e244-449a-acba-1ff34898500c1\",  \n                \"quantity\": \"1\"\n            }\n        ] \n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/representative/list?productId=8a126e4e-c933-41d4-ae92-e6d3202be1a2&orderBy=C",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"representative",
+						"list"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8a126e4e-c933-41d4-ae92-e6d3202be1a2"
+						},
+						{
+							"key": "orderBy",
+							"value": "C"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0004 - get product quantity by warehouse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchaseOrder\": {\n        \"date\": \"2021-02-03\",\n        \"orderStatus\": {\n            \"statusCode\": \"NEW\"\n        },\n        \"products\": [\n            {\n                \"productId\": \"07c5eafc-e244-449a-acba-1ff34898500c\",  \n                \"quantity\": \"1\"\n            },\n            {\n                \"productId\": \"07c5eafc-e244-449a-acba-1ff34898500c1\",  \n                \"quantity\": \"1\"\n            }\n        ] \n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/warehouse?productId=8a126e4e-c933-41d4-ae92-e6d3202be1a2",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8a126e4e-c933-41d4-ae92-e6d3202be1a2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0005 - get batches by section warehouse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/due-date?days=1",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"due-date"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0005 - get batches of category order by date",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil1_representative\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/fresh-products/due-date?days=1&category=RF",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"due-date"
+					],
+					"query": [
+						{
+							"key": "days",
+							"value": "1"
+						},
+						{
+							"key": "category",
+							"value": "RF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0006 - create user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil_admin\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"role\": \"BUYER\",\n    \"country\": \"BRAZIL\",\n    \"warehouseId\": \"fecaec1a-8da0-4c04-8a58-c31529ed5980\",\n    \"username\": \"userasdasdasd\",\n    \"password\": \"3d!@asdaSsdaSDs\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/admin/user",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US0006 - list users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const tokenUrl = 'https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/sign-in';",
+							"",
+							"const getTokenRequest = {",
+							"  method: 'POST',",
+							"  url: tokenUrl,",
+							"  header: {",
+							"      \"X-Auth-Token\" : pm.variables.get('token'),",
+							"      \"content-type\" : 'application/json'",
+							"  },",
+							"  body: {",
+							"    mode: 'application/json',",
+							"    raw: JSON.stringify(",
+							"        {",
+							"            username:\"user_brazil_admin\",",
+							"            password:\"contSD#&#!SD3\",",
+							"        })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(getTokenRequest, (err, response) => {",
+							"  console.log(response)",
+							"  const jsonResponse = response.json();",
+							"  const newAccessToken = jsonResponse.token;",
+							"  pm.variables.set('token2', newAccessToken);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prod_joao-projetofinal-bootcamp.furyapps.io/api/v1/admin/user?country=BRAZIL",
+					"protocol": "https",
+					"host": [
+						"prod_joao-projetofinal-bootcamp",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"user"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "BRAZIL"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-Auth-Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const echoPostRequest = {",
+					"  url: 'https://web.furycloud.io/api/proxy/fury/sessions',",
+					"  method: 'POST',",
+					"  header: 'Content-Type:application/json',",
+					"  body: {",
+					"    mode: 'application/json',",
+					"    raw: JSON.stringify(",
+					"        {",
+					"            username:\"\",",
+					"            password:\"\",",
+					"        })",
+					"  }",
+					"};",
+					"",
+					"pm.sendRequest(echoPostRequest, (err, response) => {",
+					"    console.log(response)",
+					"  const jsonResponse = response.json();",
+					"  pm.variables.set('token', jsonResponse.token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
